@@ -6,7 +6,7 @@ import Tasks from './components/Tasks'
 
 //function based :
 function App() {
-  const [tasks, setTask] = useState ([
+  const [tasks, setTasks] = useState ([
     {
         id: 1,
         text: 'Doctor appointment',
@@ -29,7 +29,7 @@ function App() {
 
 //delete task
 const deleteTask = (id) => {
-  console.log('delete request for: ', id)
+  setTasks(tasks.filter((task)=> task.id !== id))
 }
 
   return (
@@ -37,7 +37,7 @@ const deleteTask = (id) => {
       {/* <h1>Hello {name}, from REACT {15.3+2} (APP.js)</h1> */}
       {/* <h2>{flag? "Green Light": "Red Light"}</h2> */}
       <Header />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      { tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} /> : 'No Tasks !'}
     </div>
   );
 }

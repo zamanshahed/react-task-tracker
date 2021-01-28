@@ -26,12 +26,18 @@ function App() {
         reminder: true,
     },
 ])
+
+//delete task
+const deleteTask = (id) => {
+  console.log('delete request for: ', id)
+}
+
   return (
     <div className="container">
       {/* <h1>Hello {name}, from REACT {15.3+2} (APP.js)</h1> */}
       {/* <h2>{flag? "Green Light": "Red Light"}</h2> */}
       <Header />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   );
 }

@@ -1,18 +1,37 @@
 import React from 'react'
+import { useState } from 'react'
+
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 
 //function based :
-//------------------
 function App() {
-  // const name = 'Sumon'
-  // const flag = 0
+  const [tasks, setTask] = useState ([
+    {
+        id: 1,
+        text: 'Doctor appointment',
+        day: 'Feb 5th at 2:45pm',
+        reminder: true,
+    },
+    {
+        id: 2,
+        text: 'Meeting appointment',
+        day: 'Feb 8th at 4:15pm',
+        reminder: true,
+    },
+    {
+        id: 3,
+        text: 'Home Shopping',
+        day: 'Feb 15th at 12:05pm',
+        reminder: true,
+    },
+])
   return (
     <div className="container">
       {/* <h1>Hello {name}, from REACT {15.3+2} (APP.js)</h1> */}
       {/* <h2>{flag? "Green Light": "Red Light"}</h2> */}
       <Header />
-      <Tasks />
+      <Tasks tasks={tasks} />
     </div>
   );
 }

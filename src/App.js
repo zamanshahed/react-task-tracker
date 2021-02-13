@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 //function based :
 function App() {
@@ -27,6 +28,13 @@ function App() {
     },
 ])
 
+//add task
+const addTask = (task) => {
+  const id = Math.floor(Math.random()*10000)+11
+  console.log(task)
+  console.log(id)
+}
+
 //delete task
 const deleteTask = (id) => {
   setTasks(tasks.filter((task)=> task.id !== id))
@@ -39,9 +47,8 @@ const toggleReminder = (id) => {
 
   return (
     <div className="container">
-      {/* <h1>Hello {name}, from REACT {15.3+2} (APP.js)</h1> */}
-      {/* <h2>{flag? "Green Light": "Red Light"}</h2> */}
-      <Header />
+      <Header />      
+      <AddTask onAdd={addTask} />      
       { tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : 'No Tasks !'}
     </div>
   );
